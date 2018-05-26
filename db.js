@@ -1,3 +1,4 @@
+require('dotenv').load();
 var promise = require('bluebird');
 
 var options = {
@@ -6,7 +7,7 @@ var options = {
 };
 
 var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://localhost:5432/crypto';
+var connectionString = process.env.PG_CONNECT || 'postgres://localhost:5432/crypto';
 var db = pgp(connectionString);
 
 
